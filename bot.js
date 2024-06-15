@@ -11,8 +11,8 @@ const options = {
         + "Be a part of the next big thing in meme culture.",
     reply_markup: JSON.stringify({
         inline_keyboard: [
-            [{ text: '🎮 Play Aglippa!', web_app: { url: 'https://aglippa-dev.io.pe.kr' } }],
-            [{ text: '📜 Aglippa Narative', url: 'https://www.aglippa.xyz' }],
+            [{ text: '🎮 Play Aglippa!', web_app: { url: process.env.WEB_APP_URL } }],
+            [{ text: '📜 Aglippa Narrative', url: 'https://www.aglippa.xyz' }],
             [{ text: '🏆 Meme Contest', url: 'https://forms.gle/cPdQA6pbCoCpmmG18' }],
             [{ text: '💬 Join Chat!', url: 't.me/aglippa_chat' }]
         ]
@@ -24,7 +24,7 @@ bot.onText(/\/start/, (msg) => {
     //console.log('msg:', msg);
     options.caption = options.caption.replace('@@NAME@@', msg.chat.first_name);
     bot.sendAnimation(_chatId,
-        proccess.env.BOT_ANIMATION,
+        process.env.BOT_ANIMATION,
         options
     );
     //bot.sendPhoto();
